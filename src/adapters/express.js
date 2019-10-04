@@ -21,6 +21,7 @@ app.use(cors());
 
         app.post("/userWantsTofeedCat",(request, response)=>{
             console.log(request.body);
+           
         })
     }
     
@@ -32,6 +33,7 @@ app.use(cors());
 
     async initializeServer(port){
         app.options('*',cors());
+        
         this.defineRoutes();
         this.listenPort(port);
     }

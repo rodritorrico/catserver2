@@ -4,7 +4,7 @@
     Cat Alert: {{catAlert}}
     <div ng-if="catAlert">
         <p> Your cat is hungry!!! </p>
-        <button class="approveFeed" ng-click="feedCat()">Feed cat</button>
-        <button class="denyFeed" ng-click="">Don't feed cat</button>
+        <button class="approveFeed" ng-click="feedCat(true)">Feed cat</button>
+        <button class="denyFeed" ng-click="feedCat(false)">Don't feed cat</button>
     </div>
 </div>

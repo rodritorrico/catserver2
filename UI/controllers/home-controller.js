@@ -1,7 +1,17 @@
 APP.controller('HomeController', function ($scope, $http) {
-    $scope.feedCat=()=>{
-        let req= {
-        }
+    $scope.feedCat=(response)=>{
+        let req= { 
+            method: 'POST',
+            url:'http://localhost:3000/userWantsTofeedCat',
+            data:{"resp": response}
+        };
+        $http(req)
+        .then((res)=>{
+           
+        })
+        .catch((err)=>{
+        console.log("something went wrong!")
+    });
     };
 
     let req={
@@ -10,28 +20,11 @@ APP.controller('HomeController', function ($scope, $http) {
     };
     $http(req)
         .then((res)=>{
-            console.log(res.data);
             $scope.catAlert= res.data;
         })
         .catch((err)=>{
             console.log("something went wrong!")
          });
 
-
-    $scope.generarBoletas = ()=>{
-    
-        let req = {
-            method : 'POST',
-            url: URL + LISTAR_BOLETAS,
-            data : JSON.stringify(date)
-        };
-        $http(req)
-            .then((res)=>{
-                $scope.listadeBoletas = res.data;
-            })
-        .catch((err)=>{
-            console.log("something went wrong!")
-        });
-    }
 
 });
