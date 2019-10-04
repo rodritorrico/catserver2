@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express'; 
 var app = express();
 
 const bodyParser = require('body-parser');
@@ -10,28 +10,24 @@ app.use(cors());
 
 
 
-class Express{
-    constructor(repositorio){
-        this.repositorio = repositorio;
+export class Express{
+    constructor(){
     }
     
     
-    async escucharPuerto(puerto){
-        app.listen(puerto,()=>{
-            console.log("Escuchando puerto: " + puerto);
+    async listenPort(port){
+        app.listen(port,()=>{
+            console.log("Listening port: " + port);
         })
     }
 
-    inicializarServidor(puerto){
+    initializeServer(port){
         app.options('*',cors());
         this.definirRutasEmpleado();
         this.definirRutasDeBoleto();
-        this.escucharPuerto(puerto);
+        this.listenPort(port);
     }
 }
 
-
-
-module.exports = Express
 
 
