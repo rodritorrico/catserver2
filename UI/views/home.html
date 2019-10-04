@@ -1,1 +1,11 @@
-<h1>Hello world!</h1>
+
+<div >
+    <h1>Hello user!</h1>
+    Cat Alert: {{catAlert}}
+    <div ng-if="catAlert">
+        <p> Your cat is hungry!!! </p>
+        <button class="approveFeed" ng-click="feedCat()">Feed cat</button>
+        <button class="denyFeed" ng-click="">Don't feed cat</button>
+    </div>
+    
+</div>
