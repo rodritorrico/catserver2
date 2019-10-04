@@ -16,7 +16,11 @@ app.use(cors());
         })
 
         app.get("/notifyUser",(request, response)=>{
-            response.send(true);
+            response.send("0");
+        })
+
+        app.post("/userWantsTofeedcat",(request, response)=>{
+            console.log(request.body);
         })
     }
     
