@@ -6,10 +6,11 @@ APP.controller('HomeController', function ($scope, $http) {
 
     let req={
         method: 'GET',
-        url: 'http://localhost:3000'
+        url: 'http://localhost:3000/notifyUser'
     };
     $http(req)
         .then((res)=>{
+            console.log(res.data);
             $scope.catAlert= res.data;
         })
         .catch((err)=>{
