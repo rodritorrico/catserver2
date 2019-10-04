@@ -16,7 +16,7 @@ app.use(cors());
         })
 
         app.get("/notifyUser",(request, response)=>{
-            response.send("1");
+            response.send("0");
         })
     }
     
