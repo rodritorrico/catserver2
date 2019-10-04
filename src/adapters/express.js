@@ -15,7 +15,7 @@ app.use(cors());
             response.send("hola");
         })
 
-        app.get("/givefood",(request, response)=>{
+        app.get("/notifyUser",(request, response)=>{
             response.send(1);
         })
     }
