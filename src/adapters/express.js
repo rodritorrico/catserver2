@@ -14,6 +14,10 @@ app.use(cors());
         app.get("/",(request, response)=>{
             response.send("hola");
         })
+
+        app.get("/givefood",(request, response)=>{
+            response.send(1);
+        })
     }
     
     async listenPort(port){
