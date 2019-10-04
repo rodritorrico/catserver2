@@ -1,19 +1,20 @@
 import express from 'express'; 
-var app = express();
-
+let app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
 const cors = require('cors');
 app.use(cors());
 
+ class Express{
 
-
-
-export class Express{
     constructor(){
     }
     
+    async defineRoutes(){
+        app.get("/",(request, response)=>{
+            response.send("hola");
+        })
+    }
     
     async listenPort(port){
         app.listen(port,()=>{
@@ -21,13 +22,14 @@ export class Express{
         })
     }
 
-    initializeServer(port){
+    async initializeServer(port){
         app.options('*',cors());
-        this.definirRutasEmpleado();
-        this.definirRutasDeBoleto();
+        this.defineRoutes();
         this.listenPort(port);
     }
 }
 
+
+module.exports = Express
 
 
