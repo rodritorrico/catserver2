@@ -1,4 +1,5 @@
 APP.controller('HomeController', function ($scope, $http) {
+<<<<<<< HEAD
     $scope.feedCat=()=>{
         let req= {
         }
@@ -17,6 +18,8 @@ APP.controller('HomeController', function ($scope, $http) {
          });
 
 
+=======
+>>>>>>> ed80e18643e765cf63c47504de7b02a59eafa714
     $scope.generarBoletas = ()=>{
     
         let req = {
