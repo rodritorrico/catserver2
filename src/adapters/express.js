@@ -19,7 +19,7 @@ app.use(cors());
             response.send("0");
         })
 
-        app.post("/userWantsTofeedcat",(request, response)=>{
+        app.post("/userWantsTofeedCat",(request, response)=>{
             console.log(request.body);
         })
     }
