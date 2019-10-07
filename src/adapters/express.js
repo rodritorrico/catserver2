@@ -4,39 +4,56 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
+app.use(bodyParser.text());
 
  class Express{
 
     constructor(){
-        this.userWantsToFeedCat = 0;
-        this.catIsHungry = 0;
+      
     }
     
     async defineRoutes(){
+
+        let userWantsToFeedCat = false;
+        let catIsHungry = false;
         
 
         app.get("/notifyUser",(request, response)=>{
-            if(this.catIsHungry){
-                response.send("1");
+            if(catIsHungry){
+                response.send(true);
             }else{
-                response.send("0");
+                response.send(false);
             }
         })
 
         app.post("/userWantsTofeedCat",(request, response)=>{
-            this.userWantsToFeedCat = request.body.resp;
+            // console.log(request.body.resp);
+            if(request.body.resp === "true"){
+                catIsHungry = true;
+            }else{
+                catIsHungry = false;
+            }
+            userWantsToFeedCat = request.body.resp;
+            response.send(200);
         })
 
         app.get("/feedCat",(request, response)=>{
-            if(this.userWantsToFeedCat){
-                response.send("1");
+            // console.log(userWantsToFeedCat);/
+            if(userWantsToFeedCat){
+                response.send(true);
             }else{
-                response.send("0");
+                response.send(false);
             }
         })
 
         app.post("/catIsHungry",(request,response)=>{
-            this.catIsHungry = request.body.resp;
+            if(request.body === "0"){
+                catIsHungry = false;
+            }else{
+                catIsHungry = true;
+            }
+            console.log(request.body);
+            response.send(200);
         })
 
         
