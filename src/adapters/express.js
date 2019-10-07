@@ -11,17 +11,36 @@ app.use(cors());
     }
     
     async defineRoutes(){
+
+        let userWantsToFeedCat;
+        let catIsHungry;
+
         app.get("/",(request, response)=>{
             response.send("hola");
         })
 
         app.get("/notifyUser",(request, response)=>{
-            response.send("0");
+            if(catIsHungry){
+                response.send("1");
+            }else{
+                response.send("0");
+            }
         })
 
         app.post("/userWantsTofeedCat",(request, response)=>{
-            console.log(request.body);
-           
+            userWantsToFeedCat = request.body.resp;
+        })
+
+        app.get("/feedCat",(request, response)=>{
+            if(userWantsToFeedCat){
+                response.send("1");
+            }else{
+                response.send("0");
+            }
+        })
+
+        app.post("/catIsHungry",(request,response)=>{
+            catIsHungry = request.body.resp;
         })
 
         
