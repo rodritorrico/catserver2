@@ -8,19 +8,15 @@ app.use(cors());
  class Express{
 
     constructor(){
+        this.userWantsToFeedCat = 0;
+        this.catIsHungry = 0;
     }
     
     async defineRoutes(){
-
-        let userWantsToFeedCat;
-        let catIsHungry;
-
-        app.get("/",(request, response)=>{
-            response.send("hola");
-        })
+        
 
         app.get("/notifyUser",(request, response)=>{
-            if(catIsHungry){
+            if(this.catIsHungry){
                 response.send("1");
             }else{
                 response.send("0");
@@ -28,11 +24,11 @@ app.use(cors());
         })
 
         app.post("/userWantsTofeedCat",(request, response)=>{
-            userWantsToFeedCat = request.body.resp;
+            this.userWantsToFeedCat = request.body.resp;
         })
 
         app.get("/feedCat",(request, response)=>{
-            if(userWantsToFeedCat){
+            if(this.userWantsToFeedCat){
                 response.send("1");
             }else{
                 response.send("0");
@@ -40,7 +36,7 @@ app.use(cors());
         })
 
         app.post("/catIsHungry",(request,response)=>{
-            catIsHungry = request.body.resp;
+            this.catIsHungry = request.body.resp;
         })
 
         
